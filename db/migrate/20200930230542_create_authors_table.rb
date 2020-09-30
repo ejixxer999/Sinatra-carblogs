@@ -5,6 +5,8 @@ class CreateAuthorsTable < ActiveRecord::Migration
       a.string :email
       a.string :user_name
       a.string :password_digest
+
+      a.timestamps null: false
     end 
   end
 end
