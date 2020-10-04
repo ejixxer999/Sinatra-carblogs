@@ -13,9 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get '/blogs' do 
-    erb :blogs
-  end
 
   helpers do 
     def logged_in?
