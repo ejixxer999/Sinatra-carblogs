@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20200930231114) do
   end
 
   create_table "blogs", force: :cascade do |t|
+    t.string   "title"
     t.string   "info"
     t.integer  "author_id"
     t.datetime "created_at", null: false
