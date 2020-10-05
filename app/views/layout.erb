@@ -15,9 +15,15 @@
   </head>
   <body>
   <div class="nav">
-  <a href="/logout">Logout</a>
-  <a href="/blogs/new">Blogs</a>
+  <% if logged_in?%>
+  <a href="/blogs/index">Published Works</a>
+  <br>
+  <a href="/blogs/new">Create Blog</a>
+  <br>
   <a href="/settings">Settings</a>
+  <br>
+  <a href="/logout">Logout</a>
+  <%end%>
   
   
   
