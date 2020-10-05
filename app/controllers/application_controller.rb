@@ -13,6 +13,20 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  
+
+
+  delete '/blogs/:id' do
+    @blog = Blog.find_by(params[:id])
+        if authorized_to_edit?(@blog)
+            @blog.destroy
+            redirect '/blogs/index'
+        else
+            redirect '/blogs/index'
+        end
+  end
+
+
 
   helpers do 
     def logged_in?
@@ -22,6 +36,10 @@ class ApplicationController < Sinatra::Base
     def current_author
       @current_author ||= Author.find_by(id: session[:id])
     end 
+
+    def authorized_to_edit?(blog)
+      blog.author == current_author
   end 
+end
 
 end
