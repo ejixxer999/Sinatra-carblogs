@@ -57,21 +57,6 @@ end
         elsed
             redirect '/'
     end 
-
-    delete '/blogs/:id' do 
-        @blog = Blog.find_by(params[:id])
-        if authorized_to_edit?(@blog)
-            @blog.destroy
-            redirect '/blogs/index'
-        else
-            redirect '/blogs/index'
-        end
-    end
-
-
-    #def lock_blog_find
-       # @blog = Blog.find(params[:id])
-    #end 
 end
 end
  

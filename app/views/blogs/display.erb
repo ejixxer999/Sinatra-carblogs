@@ -2,7 +2,7 @@ POSTED WORKS
 <p><%= @blog.info %></p>
 <% if authorized_to_edit?(@blog) %>
 <a href="/blogs/<%= @blog.id%>/edit">Edit Post</a>
-<br>
+
 
 <form method="post" action="/blogs/<%= @blog.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
