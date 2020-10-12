@@ -16,15 +16,15 @@ class ApplicationController < Sinatra::Base
   
 
 
-  delete '/blogs/:id' do
-    @blog = Blog.find_by(params[:id])
-        if authorized_to_edit?(@blog)
-            @blog.destroy
-            redirect '/blogs/index'
-        else
-            redirect '/blogs/index'
-        end
-  end
+  # delete '/blogs/:id' do
+  #  @blog = Blog.find_by(params[:id])
+  #       if who_is_you?(@blog)
+  #           @blog.destroy
+  #           redirect '/blogs/index'
+  #       else
+  #           redirect '/blogs/index'
+  #       end
+  # end
 
 
 
@@ -37,9 +37,10 @@ class ApplicationController < Sinatra::Base
       @current_author ||= Author.find_by(id: session[:id])
     end 
 
-    def authorized_to_edit?(blog)
+    def who_is_you?(blog)
       blog.author == current_author
-  end 
-end
+    end 
+  end
+
 
 end
