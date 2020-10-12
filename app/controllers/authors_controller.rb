@@ -3,11 +3,7 @@ class AuthorsController < ApplicationController
     get '/login' do 
         erb :login
     end 
-#create a session 
-#find user
-#auth user
-#log user
-#user specific dashboard
+
     post '/login' do
         @author = Author.find_by(user_name: params[:user_name])
         if @author.authenticate(params[:password])
@@ -29,9 +25,13 @@ class AuthorsController < ApplicationController
 
     post '/authors' do 
         if params[:email] != "" && params[:user_name] != "" && params[:password] != ""
-            @author = Author.create(params)
-            session[:id] = @author.id
-            redirect "author/#{@author.id}"
+            if @author = Author.find_by(user_name: params[:user_name])
+                redirect '/login'
+            else
+                @author = Author.create(params)
+                session[:id] = @author.id
+                redirect "author/#{@author.id}"
+            end 
         
         else
            redirect '/signup'
@@ -46,7 +46,6 @@ class AuthorsController < ApplicationController
     
     get '/author/:id' do 
         @author = Author.find_by(id: params[:id])
-
         erb :'/Authors/dashboard'
     end 
 end 
