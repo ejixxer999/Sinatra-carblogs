@@ -13,20 +13,8 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+
   
-
-
-  # delete '/blogs/:id' do
-  #  @blog = Blog.find_by(params[:id])
-  #       if who_is_you?(@blog)
-  #           @blog.destroy
-  #           redirect '/blogs/index'
-  #       else
-  #           redirect '/blogs/index'
-  #       end
-  # end
-
-
 
   helpers do 
     def logged_in?
