@@ -1,12 +1,12 @@
 POSTED WORKS
 <p><%= @blog.info %></p>
-<% if authorized_to_edit?(@blog) %>
+<% if who_is_you?(@blog) %>
 <a href="/blogs/<%= @blog.id%>/edit">Edit Post</a>
 
 
 <form method="post" action="/blogs/<%= @blog.id %>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="delete">
 </form>
 
 <%end%>
