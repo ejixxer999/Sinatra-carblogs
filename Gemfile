@@ -15,7 +15,7 @@ gem 'bigdecimal', '1.3.5'
 
 group :test do
   gem 'rspec'
-  gem 'capybara'
+  gem 'capybara', '>= 3.34.0'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
